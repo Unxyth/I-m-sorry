@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I'm sorry ❤️ I love you</title>
+  <meta name="description" content="A heartfelt page that says 'I'm sorry' and 'I love you' beautifully." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0f1021; --bg2:#1a1b3a;
+      --pink:#ff5da2; --violet:#7c5cff;
+      --border: rgba(255,255,255,0.25); --text: #f9f9ff;
+    }
+    * { box-sizing: border-box; }
+    body{margin:0;height:100%;font-family:Poppins;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--text);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px;}
+    .card{background:rgba(255,255,255,0.1);border:1px solid var(--border);backdrop-filter:blur(10px);border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,.35);padding:30px;max-width:600px;text-align:center;}
+    .title{font-size:clamp(28px,5vw,46px);font-weight:800;margin-bottom:10px;}
+    .subtitle{opacity:.9;font-weight:300;}
+    .hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;}
+    .heart{position:absolute;font-size:clamp(14px,2.5vmin,24px);opacity:.7;animation:floatUp linear forwards;}
+    @keyframes floatUp{to{transform:translateY(-110vh);opacity:0}}
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="card">
+    <div class="title">I'm sorry ❤️ I love you</div>
+    <p class="subtitle">Mom, I'm really sorry. Thank you for everything you do for me. I love you so much. 💖</p>
+  </div>
+  <script>
+    const hearts=document.getElementById('hearts');
+    function spawnHeart(){
+      const el=document.createElement('div');
+      el.className='heart';el.textContent='❤';
+      el.style.left=Math.random()*100+'vw';
+      el.style.top='100vh';
+      el.style.animationDuration=(7000+Math.random()*3000)+'ms';
+      hearts.appendChild(el);
+      setTimeout(()=>el.remove(),10000);
+    }
+    setInterval(spawnHeart,500);
+  </script>
+</body>
+</html>
